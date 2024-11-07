@@ -45,17 +45,18 @@ Modify the script to point to the new Databricks instance and configure the rele
 databricksInstance: "https://adb-6234138917436195.15.azuredatabricks.net"  # Databricks Workspace URL
 $accessGroups = "Databricks-Group-Test"  # Azure AD Group name
 $scimToken = "keyvault-secret-URL"      # URL to the Key Vault secret containing the Databricks PAT
-
+#### Parameters
 databricksInstance: Set this to the URL of the Databricks workspace (e.g., "https://adb-6234138917436195.15.azuredatabricks.net").
 $accessGroups: The Azure AD group whose members you want to add to Databricks.
 $scimToken: The URL pointing to the Key Vault secret that contains the generated Personal Access Token.
-Step 3: Script Execution
+
+### Step 3: Script Execution
 The script is set up to run automatically or can be manually triggered as needed.
 
-3.1 Automatic Execution
+#### 3.1 Automatic Execution
 The script can be scheduled to run XX times per day.
 You can adjust the schedule based on your organization's requirements.
-3.2 Manual Trigger
+#### 3.2 Manual Trigger
 The script can also be manually triggered whenever required to add users from the specified Azure AD group to Databricks.
 Important Information
 Script Scheduling and Manual Trigger:
