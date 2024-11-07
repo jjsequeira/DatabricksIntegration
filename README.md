@@ -45,3 +45,30 @@ Modify the script to point to the new Databricks instance and configure the rele
 databricksInstance: "https://adb-6234138917436195.15.azuredatabricks.net"  # Databricks Workspace URL
 $accessGroups = "Databricks-Group-Test"  # Azure AD Group name
 $scimToken = "keyvault-secret-URL"      # URL to the Key Vault secret containing the Databricks PAT
+
+databricksInstance: Set this to the URL of the Databricks workspace (e.g., "https://adb-6234138917436195.15.azuredatabricks.net").
+$accessGroups: The Azure AD group whose members you want to add to Databricks.
+$scimToken: The URL pointing to the Key Vault secret that contains the generated Personal Access Token.
+Step 3: Script Execution
+The script is set up to run automatically or can be manually triggered as needed.
+
+3.1 Automatic Execution
+The script can be scheduled to run XX times per day.
+You can adjust the schedule based on your organization's requirements.
+3.2 Manual Trigger
+The script can also be manually triggered whenever required to add users from the specified Azure AD group to Databricks.
+Important Information
+Script Scheduling and Manual Trigger:
+
+The script is set up to run XX times per day by default. This schedule can be adjusted to meet your organization's needs.
+Alternatively, the script can be manually triggered at any time, allowing you to add users based on the AD group(s) without waiting for the scheduled execution.
+User Addition Only:
+
+This process only adds users to the Databricks workspace based on their membership in the provided Azure AD group(s).
+This is not a synchronization process, meaning that users who are removed from the Azure AD group will not be automatically removed from Databricks. Any cleanup or removal of users from Databricks must be done manually.
+Conclusion
+This integration allows you to automate the addition of users from Azure AD groups to Databricks. By following this guide, you can securely manage access using Personal Access Tokens (PAT) stored in Azure Key Vault. The script can be scheduled to run automatically or manually as needed for provisioning users.
+
+For additional assistance or questions, please refer to your internal Databricks or Azure AD administrators.
+
+
