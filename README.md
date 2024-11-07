@@ -41,10 +41,10 @@ To configure the integration for a new Databricks instance, follow these steps:
 
 Modify the script to point to the new Databricks instance and configure the relevant parameters. Specifically, update the following variables:
 
-```powershell
 databricksInstance: "https://adb-6234138917436195.15.azuredatabricks.net"  # Databricks Workspace URL
 $accessGroups = "Databricks-Group-Test"  # Azure AD Group name
-$scimToken = "keyvault-secret-URL"      # URL to the Key Vault secret containing the Databricks PAT ```
+$scimToken = "keyvault-secret-URL"      # URL to the Key Vault secret containing the Databricks PAT
+
 #### Parameters
 databricksInstance: Set this to the URL of the Databricks workspace (e.g., "https://adb-6234138917436195.15.azuredatabricks.net").
 $accessGroups: The Azure AD group whose members you want to add to Databricks.
