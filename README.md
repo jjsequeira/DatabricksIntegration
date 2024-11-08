@@ -46,40 +46,38 @@ $accessGroups = "Databricks-Group-Test"  # Azure AD Group name
 $scimToken = "keyvault-secret-URL"      # URL to the Key Vault secret containing the Databricks PAT
 
 #### Parameters
-databricksInstance: Set this to the URL of the Databricks workspace (e.g., "https://adb-6234138917436195.15.azuredatabricks.net").
-$accessGroups: The Azure AD group whose members you want to add to Databricks.
-$scimToken: The URL pointing to the Key Vault secret that contains the generated Personal Access Token.
 
+```Powershell
+**$databricksInstance:** Set this to the URL of the Databricks workspace (e.g., "https://adb-6234138917436195.15.azuredatabricks.net").
+**$accessGroups:** The Azure AD group whose members you want to add to Databricks.
+**$scimToken:** The URL pointing to the Key Vault secret that contains the generated Personal Access Token.
+```
 ---
 
 ## Step 3: Script Execution
-The script is set up to run automatically or can be manually triggered as needed.
+The script is set up to run automatically and also present the opportunity to be triggered on demand.
 
 ### 3.1 Automatic Execution
-The script can be scheduled to run XX times per day.
-You can adjust the schedule based on your organization's requirements.
-### 3.2 Manual Trigger
-The script can also be manually triggered whenever required to add users from the specified Azure AD group to Databricks.
-**Important Information**
-Script Scheduling and Manual Trigger:
+The script have been scheduled to run XX times per day, the timing was decided based on the current needs and taking into consideration the replication delay on ENtra ID for new users.
 
-The script is set up to run XX times per day by default. This schedule can be adjusted to meet your organization's needs.
-Alternatively, the script can be manually triggered at any time, allowing you to add users based on the AD group(s) without waiting for the scheduled execution.
+### 3.2 Manual Trigger
+The script can also be manually triggered whenever required to add users from the specified Azure AD group to Databricks. The function can be deployed by any member of the admin team.
 
 ---
-
-This process only adds users to the Databricks workspace based on their membership in the provided Azure AD group(s).
+**NOTE**
+The process currently only adds users to the Databricks workspace based on their membership in the provided Azure AD group(s).
 This is not a synchronization process, meaning that users who are removed from the Azure AD group will not be automatically removed from Databricks. Any cleanup or removal of users from Databricks must be done manually.
-
 ---
 
 ## Conclusion
 
-This integration process enables efficient access management via Azure AD groups, streamlining the addition of new users to Databricks. By automating the user provisioning process, organizations can achieve:
+This integration process looks to be an efficient access management via Azure AD groups, streamlining the addition of new users to Databricks. By automating the user provisioning process, organizations can achieve:
 
 **Simplified User Management:** Automatically adding users based on their membership in AD groups reduces manual intervention, ensuring that the right people have access at all times.
 **Improved Structure:** Managing access through AD groups allows for a more organized and scalable approach to user access control, particularly as teams grow.
 **Centralized Control:** By relying on Azure AD for group management, you maintain a centralized system for user access control, making it easier to track and manage users across multiple systems.
+
+In future realeases it is expected to add the deletion of users that are not part of the alloweds group and provide standarization and compliance to the actual management. 
 
 For additional assistance or questions, please refer to Cloud Horizontal team.
 
